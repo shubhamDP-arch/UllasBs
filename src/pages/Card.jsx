@@ -16,13 +16,13 @@ function TransportCards() {
       img: img,
     },
     {
-      title: 'Aeroplane',
+      title: 'Car',
       price: '$500',
       description: 'Fast and convenient for long distances.',
       img: img2,
     },
     {
-      title: 'Car',
+      title: 'Train',
       price: '$100',
       description: 'Flexible and private for personalized travel.',
       img: img3,

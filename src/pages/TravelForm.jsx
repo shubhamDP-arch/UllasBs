@@ -1,9 +1,12 @@
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
+
 function TravelForm() {
   const navigate = useNavigate();
   const [formData, setFormData] = useState({
     name: '',
+    email: '',
+    phoneNumber: '',
     fromAddress: '',
     destination: '',
     travelDate: '',
@@ -22,20 +25,22 @@ function TravelForm() {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-      console.log("Hell")
-      const response = await fetch('http://localhost:4000/send-email', {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json'
-        },
-        body: JSON.stringify(formData)
-      });
-      if (response.ok) {
-        alert('Email sent successfully!');
-      } else {
-        alert('Failed to send email');
-      }
-      navigate('/card');
+    console.log("Submitting form data", formData);
+
+    const response = await fetch('http://localhost:4000/send-email', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify(formData)
+    });
+
+    if (response.ok) {
+      alert('Email sent successfully!');
+    } else {
+      alert('Failed to send email');
+    }
+    navigate('/card');
   };
 
   return (
@@ -50,6 +55,32 @@ function TravelForm() {
             name="name"
             className="form-control"
             value={formData.name}
+            onChange={handleChange}
+            required
+          />
+        </div>
+
+        <div className="mb-3">
+          <label htmlFor="email" className="form-label">Email</label>
+          <input
+            type="email"
+            id="email"
+            name="email"
+            className="form-control"
+            value={formData.email}
+            onChange={handleChange}
+            required
+          />
+        </div>
+
+        <div className="mb-3">
+          <label htmlFor="phoneNumber" className="form-label">Phone Number</label>
+          <input
+            type="text"
+            id="phoneNumber"
+            name="phoneNumber"
+            className="form-control"
+            value={formData.phoneNumber}
             onChange={handleChange}
             required
           />
