@@ -1,0 +1,11 @@
+.carousel-item img {
+  width: 100vw; /* Full viewport width */
+  height: 100vh; /* Full viewport height */
+  object-fit: cover; /* Ensures the image covers the container */
+}
+
+.carousel-caption {
+  background-color: rgba(0, 0, 0, 0.5); /* Optional: Adds a semi-transparent background */
+  padding: 20px; /* Optional: Adds padding for better visibility */
+  border-radius: 10px; /* Optional: Adds rounded corners */
+}
