@@ -1,6 +1,5 @@
 import { useState } from 'react';
-import reactLogo from './assets/react.svg';
-import viteLogo from '/vite.svg';
+
 import './App.css';
 import 'bootstrap/dist/css/bootstrap.min.css';
 
@@ -8,6 +7,7 @@ import { BrowserRouter as Router, Route, Routes } from 'react-router-dom'; // Us
 import Home from './pages/Home';
 import TravelForm from './pages/TravelForm';
 import TransportCards from './pages/Card';
+import PaymentPage from './pages/PaymentPage';
 function App() {
   const [count, setCount] = useState(0);
 
@@ -17,6 +17,7 @@ function App() {
         <Route path="/" element={<Home />} /> {/* Use element instead of component */}
         <Route path='/destinations' element={<TravelForm/>}/>
         <Route path='/card' element={<TransportCards/>}/>
+        <Route path="/payment" element={<PaymentPage />} />
       </Routes>
     </Router>
   );
